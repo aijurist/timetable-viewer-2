@@ -1,0 +1,86 @@
+# Netlify configuration file
+# Documentation: https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  # Directory to publish (the folder containing your static files)
+  publish = "."
+  
+  # No build command needed for static sites
+  command = ""
+
+# Static file rewrites - map /static/* to actual directories
+[[redirects]]
+  from = "/static/css/*"
+  to = "/css/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/static/js/*"
+  to = "/js/:splat"
+  status = 200
+
+# Route redirects for navigation (only static-data pages)
+[[redirects]]
+  from = "/"
+  to = "/schedule_view.html"
+  status = 200
+
+[[redirects]]
+  from = "/schedule"
+  to = "/schedule_view.html"
+  status = 200
+
+[[redirects]]
+  from = "/schedule_view.html"
+  to = "/schedule_view.html"
+  status = 200
+
+[[redirects]]
+  from = "/rooms"
+  to = "/room_view.html"
+  status = 200
+
+[[redirects]]
+  from = "/room_view.html"
+  to = "/room_view.html"
+  status = 200
+
+# Headers for better performance, security, and CORS
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # CORS headers - allow all origins
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+    # Enable caching for static assets
+    Cache-Control = "public, max-age=31536000"
+    # Security headers
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "*.html"
+  [headers.values]
+    # HTML files should always be fresh
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Content-Type = "text/css"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Content-Type = "application/javascript"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "*.json"
+  [headers.values]
+    Content-Type = "application/json"
+    Access-Control-Allow-Origin = "*"
