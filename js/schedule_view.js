@@ -634,22 +634,11 @@ function generateScheduleTable(data) {
                 const groupNumber = session.group_name ? session.group_name.match(/_G(\d+)$/)?.[1] || "" : "";
 
                 html += `
-                    <div class="${sessionClass} ${batchClass} ${deptClass}" title="
-                        Course: ${session.course_name}
-                        Teacher: ${session.teacher_name}
-                        Room: ${session.room_number} (${session.block})
-                        Department: ${session.department}
-                        Group: ${session.group_name}
-                        Semester: ${semester}
-                        ${isLab ? 'Capacity: ' + (session.capacity || 'NA') : ''}
-                        ${isLab && (batchLabel || batchNumber) ? 'Batch: ' + (batchLabel || `Batch ${batchNumber}`) : ''}
-                    ">
                         <div class="session-header">
                             <div class="session-code">${session.course_code_display || session.course_code}</div>
                             ${groupNumber ? `<div class="group-number ${groupClass}">G${groupNumber}</div>` : ""}
                         </div>
                         <div class="session-teacher">${session.teacher_name}</div>
-                        <div class="session-room">${session.room_number || 'TBD'}</div>
                         ${isLab && (batchLabel || batchNumber) ? `<div class="batch-label">${batchLabel || `Batch ${batchNumber}`}</div>` : ""}
                         <div class="semester-indicator">${semester}</div>
                     </div>
