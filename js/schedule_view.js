@@ -649,7 +649,6 @@ function generateScheduleTable(data) {
                             ${groupNumber ? `<div class="group-number ${groupClass}">G${groupNumber}</div>` : ""}
                         </div>
                         <div class="session-teacher">${session.teacher_name}</div>
-                        <div class="session-room">${session.room_number || 'TBD'}</div>
                         ${isLab && (batchLabel || batchNumber) ? `<div class="batch-label">${batchLabel || `Batch ${batchNumber}`}</div>` : ""}
                         <div class="semester-indicator">${semester}</div>
                     </div>
