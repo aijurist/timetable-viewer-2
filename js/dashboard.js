@@ -132,8 +132,11 @@ function parseTimeLabel(label) {
         return { hour: 99, minute: 0 };
     }
     const [hourStr, minuteStr] = start.split(':');
-    const hour = parseInt(hourStr, 10) || 0;
+    let hour = parseInt(hourStr, 10) || 0;
     const minute = parseInt(minuteStr, 10) || 0;
+    if (hour >= 1 && hour <= 7) {
+        hour += 12;
+    }
     return { hour, minute };
 }
 
