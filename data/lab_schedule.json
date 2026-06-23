@@ -3231,8 +3231,8 @@
   },
   {
     "day": "wed",
-    "session_name": "L2",
-    "time_range": "10:00 - 11:40",
+    "session_name": "L1",
+    "time_range": "8:00 - 9:40",
     "course_instance_id": 832,
     "course_code": "CRS23PE42",
     "course_code_display": "CRS23PE42",
